@@ -1,12 +1,17 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "searchclientwidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->statusBar()->showMessage(tr("window opened"));
+    this->statusBar()->showMessage(tr("Vous venez de vous connecter"));
+
+    SearchClientWidget* searchClientWidget = new SearchClientWidget(this);
+    this->ui->tabWidget->addTab(searchClientWidget, "Rechercher client");
+
 }
 
 

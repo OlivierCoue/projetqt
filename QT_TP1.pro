@@ -17,16 +17,23 @@ SOURCES += main.cpp\
     logindialog.cpp \
     addclientdialog.cpp \
     addstaffdialog.cpp \
-    aboutdialog.cpp
+    aboutdialog.cpp \
+    client.cpp \
+    clientcontroller.cpp \
+    searchclientwidget.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
     addclientdialog.h \
     addstaffdialog.h \
-    aboutdialog.h
+    aboutdialog.h \
+    client.h \
+    clientcontroller.h \
+    searchclientwidget.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
     addclientdialog.ui \
     addstaffdialog.ui \
-    aboutdialog.ui
+    aboutdialog.ui \
+    searchclientwidget.ui
