@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "searchclientwidget.h"
+#include "c_init_bd.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     SearchClientWidget* searchClientWidget = new SearchClientWidget(this);
     this->ui->tabWidget->addTab(searchClientWidget, "Rechercher client");
+
+    C_INIT_BD::Creation_BD();
 
 }
 

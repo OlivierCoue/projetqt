@@ -1,4 +1,5 @@
 #include "client.h"
+#include <QException>
 
 Client::Client(QString firstname,
                QString lastname,
@@ -21,6 +22,36 @@ Client::Client(QString firstname,
     this->priority = priority;
     this->comment = comment;
     this->phoneNumber = phoneNumber;
+}
+
+bool Client::validate()
+{
+    if(firstname == nullptr)
+        return false;
+    firstname = firstname.toLower();
+    firstname[0] = firstname[0].toUpper();
+
+    if(lastname == nullptr)
+        return false;
+    lastname = lastname.toLower();
+    lastname[0] = lastname[0].toUpper();
+
+    if(address == nullptr)
+        return false;
+
+    if(city == nullptr)
+        return false;
+    city = city.toLower();
+    city[0] = city[0].toUpper();
+
+    QDate now = QDate::currentDate();
+    if(appointmentDate < now)
+        return false;
+
+    if(priority < 1 || priority > 5)
+        return false;
+
+    return true;
 }
 
 QString Client::getFirstname() const
