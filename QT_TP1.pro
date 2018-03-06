@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+    sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,7 +21,8 @@ SOURCES += main.cpp\
     aboutdialog.cpp \
     client.cpp \
     clientcontroller.cpp \
-    searchclientwidget.cpp
+    searchclientwidget.cpp \
+    c_init_bd.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -29,7 +31,8 @@ HEADERS  += mainwindow.h \
     aboutdialog.h \
     client.h \
     clientcontroller.h \
-    searchclientwidget.h
+    searchclientwidget.h \
+    c_init_bd.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \

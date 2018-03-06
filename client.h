@@ -23,6 +23,8 @@ private:
 public:
     Client(QString, QString, QString, QString, int, QDate, int, int, QString, QString);
 
+    bool validate();
+
     QString getLastname() const;
     void setLastname(const QString &value);
     QString getFirstname() const;
