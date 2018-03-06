@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     aboutdialog.cpp \
     client.cpp \
     clientcontroller.cpp \
-    searchclientwidget.cpp
+    searchclientwidget.cpp \
+    ressource.cpp \
+    staff.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -29,7 +31,9 @@ HEADERS  += mainwindow.h \
     aboutdialog.h \
     client.h \
     clientcontroller.h \
-    searchclientwidget.h
+    searchclientwidget.h \
+    ressource.h \
+    staff.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
