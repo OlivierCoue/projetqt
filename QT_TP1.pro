@@ -8,10 +8,10 @@ QT       += core gui \
     sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+CONFIG += c++11
 
 TARGET = QT_TP1
 TEMPLATE = app
-
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -24,7 +24,9 @@ SOURCES += main.cpp\
     searchclientwidget.cpp \
     c_init_bd.cpp \
     daoclient.cpp \
-    dbutil.cpp
+    dbutil.cpp \
+    ressource.cpp \
+    staff.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -36,7 +38,9 @@ HEADERS  += mainwindow.h \
     searchclientwidget.h \
     c_init_bd.h \
     daoclient.h \
-    dbutil.h
+    dbutil.h \
+    ressource.h \
+    staff.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \

@@ -11,7 +11,6 @@ class DaoClient
 {
 public:
     DaoClient();
-    static QSqlQueryModel * getAll();
     static QSqlQueryModel * search(QString firstname, QString lastname);
 };
 

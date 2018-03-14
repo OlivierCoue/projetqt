@@ -9,15 +9,6 @@ DaoClient::DaoClient()
 
 }
 
-QSqlQueryModel *DaoClient::getAll()
-{
-
-    QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery("SELECT * FROM TClient");
-
-    return model;
-}
-
 QSqlQueryModel *DaoClient::search(QString firstname, QString lastname)
 {
 
