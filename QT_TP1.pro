@@ -22,7 +22,9 @@ SOURCES += main.cpp\
     client.cpp \
     clientcontroller.cpp \
     searchclientwidget.cpp \
-    c_init_bd.cpp
+    c_init_bd.cpp \
+    daoclient.cpp \
+    dbutil.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -32,7 +34,9 @@ HEADERS  += mainwindow.h \
     client.h \
     clientcontroller.h \
     searchclientwidget.h \
-    c_init_bd.h
+    c_init_bd.h \
+    daoclient.h \
+    dbutil.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
