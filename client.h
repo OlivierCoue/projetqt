@@ -21,6 +21,7 @@ private:
     QString comment;
     QString phoneNumber;
 public:
+    Client();
     Client(QString, QString, QString, QString, int, QDate, int, int, QString, QString);
 
     bool validate();

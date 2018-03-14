@@ -1,6 +1,10 @@
 #include "client.h"
 #include <QException>
 
+Client::Client()
+{
+}
+
 Client::Client(QString firstname,
                QString lastname,
                QString address,
