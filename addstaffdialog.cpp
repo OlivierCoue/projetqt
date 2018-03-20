@@ -6,7 +6,8 @@ AddStaffDialog::AddStaffDialog(QWidget *parent) :
     ui(new Ui::AddStaffDialog)
 {
     ui->setupUi(this);
-    ui->typeBox->addItems(QStringList::fromVector(Staff::getAllTypes()));
+    // for all types
+    //ui->typeBox->addItem(type.getString(), type.getQVariantId());
     currentStaff = new Staff();
 }
 
@@ -15,7 +16,8 @@ AddStaffDialog::AddStaffDialog(Staff *staff, QWidget *parent) :
     ui(new Ui::AddStaffDialog)
 {
     ui->setupUi(this);
-    ui->typeBox->addItems(QStringList::fromVector(Staff::getAllTypes()));
+    // for all types
+    //ui->typeBox->addItem(type.getString(), type.getQVariantId());
     currentStaff = staff;
     setForm(*staff);
 }
@@ -29,8 +31,9 @@ void AddStaffDialog::on_createStaffButton_clicked()
 {
     currentStaff->setFirstname(ui->firstname->text());
     currentStaff->setLastname(ui->lastname->text());
-    currentStaff->setType(ui->typeBox->currentText());
-    if(ui->typeBox->currentText() == Staff::DEVELOPER) {
+    //create new type from ui->typeBox->currentText + id
+    //currentStaff->setType(ui->typeBox->currentText());
+    if(currentStaff->isDeveloper()) {
         currentStaff->setLogin(ui->login->text());
         currentStaff->setPassword(ui->password->text());
     }
@@ -40,7 +43,8 @@ void AddStaffDialog::on_createStaffButton_clicked()
 
 void AddStaffDialog::on_typeBox_currentTextChanged(const QString &type)
 {
-    bool isDev = type == Staff::DEVELOPER;
+    //currentStaff->setType(ui->typeBox->currentText());
+    bool isDev = currentStaff->isDeveloper();
     ui->login->setEnabled(isDev);
     ui->password->setEnabled(isDev);
 }
@@ -54,8 +58,8 @@ void AddStaffDialog::setForm(Staff staff)
 {
     ui->firstname->setText(staff.getFirstname());
     ui->lastname->setText(staff.getLastname());
-    ui->typeBox->setCurrentIndex(staff.getIndexOfType());
-    if(staff.getType() == Staff::DEVELOPER) {
+   // ui->typeBox->setCurrentIndex(staff.getIndexOfType());
+    if(staff.isDeveloper()) {
         ui->login->setText(staff.getLogin());
         ui->login->setText(staff.getPassword());
     }

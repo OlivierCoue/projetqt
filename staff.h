@@ -4,13 +4,16 @@
 #include <QtWidgets>
 #include <QVector>
 
+#include "stafftype.h"
+
 class Staff
 {
 
 public:
     Staff();
-    Staff(QString firstname, QString lastname, QString type);
-    Staff(QString firstname, QString lastname, QString login, QString password);
+    Staff(int id,QString firstname, QString lastname,StaffType type, QString login, QString password);
+
+    int getId() const;
 
     QString getFirstname() const;
     void setFirstname(const QString &value);
@@ -24,24 +27,18 @@ public:
     QString getPassword() const;
     void setPassword(const QString &value);
 
-    QString getType() const;
-    void setType(const QString &value);
+    StaffType getType() const;
+    void setType(const StaffType &value);
+
+    bool isDeveloper();
 
     bool validate();
 
-    int getIndexOfType();
-    static QVector<QString> getAllTypes();
-
-    static const QString BANKER_A;
-    static const QString BANKER_B;
-    static const QString INSURER_HOUSING;
-    static const QString INSURER_CAR;
-    static const QString INSURER_LIFE;
-    static const QString DEVELOPER;
-    static const QString MISCELLANEOUS;
 private:
+    void setId(int value);
+    int id;
     QString firstname, lastname;
-    QString type;
+    StaffType type;
     QString login, password;
 };
 

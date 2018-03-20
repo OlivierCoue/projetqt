@@ -24,7 +24,9 @@ SOURCES += main.cpp\
     searchclientwidget.cpp \
     ressource.cpp \
     staff.cpp \
-    c_init_bd.cpp
+    c_init_bd.cpp \
+    account.cpp \
+    stafftype.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -36,7 +38,9 @@ HEADERS  += mainwindow.h \
     searchclientwidget.h \
     ressource.h \
     staff.h \
-    c_init_bd.h
+    c_init_bd.h \
+    account.h \
+    stafftype.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
