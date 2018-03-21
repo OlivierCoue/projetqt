@@ -2,10 +2,9 @@
 
 Staff::Staff()
 {
-
 }
 
-Staff::Staff(int id, QString firstname, QString lastname, StaffType type, QString login = nullptr, QString password = nullptr)
+Staff::Staff(int id, QString firstname, QString lastname, StaffType type, QString login, QString password)
 {
     setId(id);
     setFirstname(firstname);
@@ -35,26 +34,6 @@ void Staff::setLastname(const QString &value)
     lastname = value;
 }
 
-QString Staff::getLogin() const
-{
-    return login;
-}
-
-void Staff::setLogin(const QString &value)
-{
-    login = value;
-}
-
-QString Staff::getPassword() const
-{
-    return password;
-}
-
-void Staff::setPassword(const QString &value)
-{
-    password = value;
-}
-
 bool Staff::validate()
 {
     if(firstname.isEmpty())
@@ -67,8 +46,10 @@ bool Staff::validate()
     lastname = lastname.toLower();
     lastname[0] = lastname[0].toUpper();
 
-    /*if(!getAllTypes().contains(type))
-        return false;*/
+    if(!DaoType::getAll().contains(type)) {
+        qDebug()<< type.getString()<< "not validated";
+        return false;
+    }
 
     if(isDeveloper())
         if(login.isEmpty() || password.isEmpty())
@@ -81,12 +62,32 @@ void Staff::setId(int value)
     id = value;
 }
 
-StaffType Staff::getType() const
+QString Staff::getPassword() const
+{
+    return password;
+}
+
+void Staff::setPassword(const QString &value)
+{
+    password = value;
+}
+
+QString Staff::getLogin() const
+{
+    return login;
+}
+
+void Staff::setLogin(const QString &value)
+{
+    login = value;
+}
+
+StaffType Staff::getType()
 {
     return type;
 }
 
-void Staff::setType(const StaffType &value)
+void Staff::setType(StaffType &value)
 {
     type = value;
 }

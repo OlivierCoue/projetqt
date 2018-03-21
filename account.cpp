@@ -1,3 +1,4 @@
+#include "staff.h"
 #include "account.h"
 
 Account::Account()
@@ -5,8 +6,9 @@ Account::Account()
 
 }
 
-Account::Account(Staff staff, QString login, QString password)
+Account::Account(int id, Staff* staff, QString login, QString password)
 {
+    this->id = id;
     setStaff(staff);
     setLogin(login);
     setPassword(password);
@@ -15,11 +17,6 @@ Account::Account(Staff staff, QString login, QString password)
 int Account::getId() const
 {
     return id;
-}
-
-void Account::setId(int value)
-{
-    id = value;
 }
 
 QString Account::getPassword() const
@@ -32,6 +29,13 @@ void Account::setPassword(const QString &value)
     password = value;
 }
 
+bool Account::validate()
+{
+    if(staff == nullptr || login == nullptr || password == nullptr)
+        return false;
+    return true;
+}
+
 QString Account::getLogin() const
 {
     return login;
@@ -42,12 +46,12 @@ void Account::setLogin(const QString &value)
     login = value;
 }
 
-Staff Account::getStaff() const
+Staff* Account::getStaff()
 {
     return staff;
 }
 
-void Account::setStaff(const Staff &value)
+void Account::setStaff(Staff* value)
 {
     staff = value;
 }

@@ -36,8 +36,13 @@ void AddClientDialog::on_createClientButton_clicked()
     currentClient->setComment(ui->comment->text());
     currentClient->setPhoneNumber(ui->phoneNumber->text());
 
-    if(currentClient->validate())
+    if(currentClient->validate()) {
+        if(currentClient->getId() == -1)
+            DaoClient::save(*currentClient);
+        else
+            DaoClient::update(*currentClient);
         accept();
+    }
 }
 
 void AddClientDialog::on_cancelButton_clicked()
@@ -47,7 +52,8 @@ void AddClientDialog::on_cancelButton_clicked()
 
 void AddClientDialog::setForm(Client client)
 {
-    ui->createClientButton->setText("Modify client");
+    this->setWindowTitle("Modifier un client");
+    ui->createClientButton->setText("Modifier client");
     ui->firstname->setText(client.getFirstname());
     ui->lastname->setText(client.getLastname());
     ui->address->setText(client.getAddress());

@@ -6,6 +6,8 @@
 #include "addclientdialog.h"
 #include "addstaffdialog.h"
 #include "aboutdialog.h"
+#include "visualizestaffwidget.h"
+#include "searchclientwidget.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +32,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    SearchClientWidget * searchClientWidget;
+    VisualizeStaffWidget * visualizeStaffWidget;
 };
 
 #endif // MAINWINDOW_H

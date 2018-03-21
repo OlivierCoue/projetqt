@@ -9,6 +9,7 @@ using namespace std;
 class Client
 {
 private:
+    int id = -1;
     QString lastname;
     QString firstname;
     QString address;
@@ -22,7 +23,7 @@ private:
     QString phoneNumber;
 public:
     Client();
-    Client(QString, QString, QString, QString, int, QDate, int, int, QString, QString);
+    Client(int ,QString, QString, QString, QString, int, QDate, int, int, QString, QString);
 
     bool validate();
 
@@ -46,6 +47,7 @@ public:
     void setComment(const QString &value);
     QString getPhoneNumber() const;
     void setPhoneNumber(const QString &value);
+    int getId() const;
 };
 
 #endif // CLIENT_H

@@ -3,7 +3,10 @@
 
 #include <QDialog>
 #include <QtWidgets>
+#include <QDebug>
 
+#include "daotype.h"
+#include "daostaff.h"
 #include "staff.h"
 
 namespace Ui {
@@ -26,6 +29,8 @@ private slots:
     void on_typeBox_currentTextChanged(const QString &arg1);
 
     void on_cancelButton_clicked();
+
+    void showEvent( QShowEvent* event );
 
 private:
     void setForm(Staff staff);

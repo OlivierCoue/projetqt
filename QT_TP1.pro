@@ -22,11 +22,15 @@ SOURCES += main.cpp\
     client.cpp \
     clientcontroller.cpp \
     searchclientwidget.cpp \
+    c_init_bd.cpp \
+    daoclient.cpp \
+    dbutil.cpp \
     ressource.cpp \
     staff.cpp \
-    c_init_bd.cpp \
-    account.cpp \
-    stafftype.cpp
+    stafftype.cpp \
+    daotype.cpp \
+    daostaff.cpp \
+    visualizestaffwidget.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -36,15 +40,20 @@ HEADERS  += mainwindow.h \
     client.h \
     clientcontroller.h \
     searchclientwidget.h \
-    ressource.h \
-    staff.h \
     c_init_bd.h \
-    account.h \
-    stafftype.h
+    daoclient.h \
+    dbutil.h \
+    ressource.h \
+    stafftype.h \
+    staff.h \
+    daotype.h \
+    daostaff.h \
+    visualizestaffwidget.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
     addclientdialog.ui \
     addstaffdialog.ui \
     aboutdialog.ui \
-    searchclientwidget.ui
+    searchclientwidget.ui \
+    visualizestaffwidget.ui

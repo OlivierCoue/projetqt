@@ -2,9 +2,10 @@
 #define STAFF_H
 
 #include <QtWidgets>
-#include <QVector>
 
 #include "stafftype.h"
+
+#include "daotype.h"
 
 class Staff
 {
@@ -21,22 +22,22 @@ public:
     QString getLastname() const;
     void setLastname(const QString &value);
 
+    StaffType getType();
+    void setType(StaffType &value);
+
+    bool isDeveloper();
+
+    bool validate();
+
     QString getLogin() const;
     void setLogin(const QString &value);
 
     QString getPassword() const;
     void setPassword(const QString &value);
 
-    StaffType getType() const;
-    void setType(const StaffType &value);
-
-    bool isDeveloper();
-
-    bool validate();
-
 private:
     void setId(int value);
-    int id;
+    int id = -1;
     QString firstname, lastname;
     StaffType type;
     QString login, password;

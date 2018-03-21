@@ -11,7 +11,7 @@ StaffType::StaffType(int id, QString type)
     this->type = type;
 }
 
-QString StaffType::getString() const
+QString StaffType::getString()
 {
     return type;
 }

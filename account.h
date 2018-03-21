@@ -3,17 +3,17 @@
 
 #include <QWidget>
 
-#include "staff.h"
+class Staff;
 
 class Account
 {
 public:
     Account();
-    Account(Staff staff, QString login, QString password);
+    Account(int, Staff*, QString, QString);
     int getId() const;
 
-    Staff getStaff() const;
-    void setStaff(const Staff &value);
+    Staff* getStaff();
+    void setStaff(Staff* value);
 
     QString getLogin() const;
     void setLogin(const QString &value);
@@ -21,10 +21,10 @@ public:
     QString getPassword() const;
     void setPassword(const QString &value);
 
+    bool validate();
 private:
-    void setId(int value);
-    int id;
-    Staff staff;
+    int id = -1;
+    Staff * staff = NULL;
     QString login, password;
 };
 

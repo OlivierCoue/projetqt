@@ -5,7 +5,8 @@ Client::Client()
 {
 }
 
-Client::Client(QString firstname,
+Client::Client(int id,
+               QString firstname,
                QString lastname,
                QString address,
                QString city,
@@ -16,6 +17,7 @@ Client::Client(QString firstname,
                QString comment = nullptr,
                QString phoneNumber = nullptr)
 {
+    this->id = id;
     this->firstname = firstname;
     this->lastname = lastname;
     this->address = address;
@@ -56,6 +58,11 @@ bool Client::validate()
         return false;
 
     return true;
+}
+
+int Client::getId() const
+{
+    return id;
 }
 
 QString Client::getFirstname() const

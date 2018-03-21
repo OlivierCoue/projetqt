@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "searchclientwidget.h"
-#include "c_init_bd.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,13 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->statusBar()->showMessage(tr("Vous venez de vous connecter"));
 
-    SearchClientWidget* searchClientWidget = new SearchClientWidget(this);
+    searchClientWidget = new SearchClientWidget(this);
+    visualizeStaffWidget = new VisualizeStaffWidget(this);
     this->ui->tabWidget->addTab(searchClientWidget, "Rechercher client");
-
-    C_INIT_BD::Creation_BD();
-
+    this->ui->tabWidget->addTab(visualizeStaffWidget, "Visualiser ressources");
 }
-
 
 
 MainWindow::~MainWindow()
@@ -27,7 +23,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionClient_triggered()
 {
     AddClientDialog addClientDialog(this);
-    addClientDialog.exec();
+    if(addClientDialog.exec() == QDialog::Accepted) {
+        searchClientWidget->searchClient();
+    }
 }
 
 void MainWindow::on_actionQuitter_triggered()
@@ -38,7 +36,9 @@ void MainWindow::on_actionQuitter_triggered()
 void MainWindow::on_actionStaff_triggered()
 {
     AddStaffDialog addStaffDialog(this);
-    addStaffDialog.exec();
+    if(addStaffDialog.exec() == QDialog::Accepted) {
+        visualizeStaffWidget->updateTreeView();
+    }
 }
 
 void MainWindow::on_actionA_propos_triggered()

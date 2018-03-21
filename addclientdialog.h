@@ -6,6 +6,7 @@
 #include <QTextStream>
 
 #include "client.h"
+#include "daoclient.h"
 
 namespace Ui {
 class AddClientDialog;
