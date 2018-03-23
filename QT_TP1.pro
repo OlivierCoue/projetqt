@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     stafftype.cpp \
     daotype.cpp \
     daostaff.cpp \
-    visualizestaffwidget.cpp
+    visualizestaffwidget.cpp \
+    daoaccount.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -48,7 +49,8 @@ HEADERS  += mainwindow.h \
     staff.h \
     daotype.h \
     daostaff.h \
-    visualizestaffwidget.h
+    visualizestaffwidget.h \
+    daoaccount.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
