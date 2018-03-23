@@ -5,23 +5,26 @@ DaoClient::DaoClient()
 
 }
 
-QSqlQueryModel *DaoClient::search(QString firstname, QString lastname)
+QSqlQueryModel *DaoClient::search(QString firstname, QString lastname, int id, QDate start, QDate end)
 {
 
     QSqlQueryModel *model = new QSqlQueryModel;
     if(DbUtil::getInstance()->getConnection().isOpen())
         qDebug() <<  "ca re marche";
 
-    if((firstname.isNull() || firstname.trimmed().isEmpty()) && (lastname.isNull() || lastname.trimmed().isEmpty())){
+    if((firstname.isNull() || firstname.trimmed().isEmpty()) && (lastname.isNull() || lastname.trimmed().isEmpty())  && id <= 0){
         QSqlQuery query(DbUtil::getInstance()->getConnection());
         query.prepare("SELECT Id, Nom, Prenom, DateRdv FROM [TClient]");
         query.exec();
         model->setQuery(query);
     }else{
         QSqlQuery query(DbUtil::getInstance()->getConnection());
-        query.prepare("SELECT Id, Nom, Prenom, DateRdv FROM [TClient] WHERE [Nom]=:nom OR [Prenom]=:prenom");
+        query.prepare("SELECT Id, Nom, Prenom, DateRdv FROM [TClient] WHERE [Nom]=:nom OR [Prenom]=:prenom OR [Id]=:id AND [DateRdv] BETWEEN :start AND :end");
         query.bindValue(":nom", lastname);
         query.bindValue(":prenom", firstname);
+        query.bindValue(":id", id);
+        query.bindValue(":start", start);
+        query.bindValue(":end", end);
         query.exec();
         model->setQuery(query);
     }

@@ -25,7 +25,7 @@ void SearchClientWidget::searchClient()
     if(clientListModel != nullptr)
         delete clientListModel;
 
-    clientListModel = DaoClient::search(ui->firstnameInput->text(), ui->lastnameInput->text());
+    clientListModel = DaoClient::search(ui->firstnameInput->text(), ui->lastnameInput->text(), ui->idInput->text().toInt(), ui->appointmentDateStartInput->date(), ui->appointmentDateEndInput->date());
     ui->ClientTableView->setModel(clientListModel);
 }
 
